@@ -6,6 +6,9 @@
 
 ## 환경설정
 ```sh
+# IP 키문제가 생길 경우, 키를 초기화시킴
+ssh-keygen -R {아이피주소}
+
 # OS 업데이트
 sudo rpi-update
 sudo reboot
