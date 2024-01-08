@@ -6,21 +6,25 @@
 
 ## 환경설정
 ```sh
-# OS 업데이트
+# 노드 현재 설치 가능 버전 확인
+apt list | grep nodejs
+
+# 노드 최신 버전 업데이트
+$ sudo curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+
+# 노드 최신 버전 설치
+sudo apt-get install nodejs
+
+# OS 업데이트 (필요할 때만 할 것)
 sudo rpi-update
 sudo reboot
 
-# apt 설치(없을 경우)
+# apt 설치 (없을 경우)
 sudo apt-get update
+sudo apt-get upgrade
 
 # 크롬 브라우저 설치
 sudo apt install chromium-browser
-
-# NPM 설치
-sudo apt install npm
-
-# 노드 설치
-sudo apt install nodejs
 ```
 
 ## 트러블슈팅
