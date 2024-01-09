@@ -6,6 +6,14 @@
 
 ## 환경설정
 ```sh
+# apt 설치 (없을 경우)
+sudo apt-get update
+
+# 캐시 초기화
+sudo rm -rf /var/cache/apt/archives/*
+sudo rm -rf /var/lib/apt/lists/*
+sudo apt-get clean
+
 # 노드 현재 설치 가능 버전 확인
 apt list | grep nodejs
 
@@ -15,16 +23,30 @@ $ sudo curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 # 노드 최신 버전 설치
 sudo apt-get install nodejs
 
+# 크롬 브라우저 설치
+sudo apt install chromium-browser chromium-codecs-ffmpeg -y
+which chromium-browser
+
+# Git 설정
+sudo apt-get install git -y
+which git
+# Github SSH 설정
+ssh-keygen -t ed25519 -C "test@gmail.com"
+cat ~/.ssh/id_ed25519.pub
+```
+
+## 환경설정
+```sh
+# 캐시 초기화
+sudo rm -rf /var/cache/apt/archives/*
+sudo rm -rf /var/lib/apt/lists/*
+
 # OS 업데이트 (필요할 때만 할 것)
 sudo rpi-update
 sudo reboot
 
-# apt 설치 (없을 경우)
-sudo apt-get update
+# apt 업데이트
 sudo apt-get upgrade
-
-# 크롬 브라우저 설치
-sudo apt install chromium-browser
 ```
 
 ## 트러블슈팅
@@ -47,5 +69,4 @@ sudo dpkg --configure -a
 # 재현: sudo apt-get update 실행시 발생
 sudo rm /var/lib/dpkg/status
 sudo apt-get update
-
 ```
