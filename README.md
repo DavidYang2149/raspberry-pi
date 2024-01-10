@@ -2,7 +2,7 @@
 
 ## 설치하기
 - 하드웨어: 라즈베리파이4 2GB 기준
-- 설치OS: RASPBERRY PI OS LITE (64-BIT)
+- 설치OS: Raspberry Pi 4에 Ubuntu Server 20.04
 
 ## 환경설정
 ```sh
