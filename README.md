@@ -18,10 +18,12 @@ sudo apt-get clean
 apt list | grep nodejs
 
 # 노드 최신 버전 업데이트
-$ sudo curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 
 # 노드 최신 버전 설치
-sudo apt-get install nodejs
+sudo apt-get install nodejs -y
+# 노드에 필요한 부수 도구 설치
+sudo apt-get install gcc g++ make -y
 
 # 크롬 브라우저 설치
 sudo apt install chromium-browser chromium-codecs-ffmpeg -y
@@ -30,6 +32,7 @@ which chromium-browser
 # Git 설정
 sudo apt-get install git -y
 which git
+
 # Github SSH 설정
 ssh-keygen -t ed25519 -C "test@gmail.com"
 cat ~/.ssh/id_ed25519.pub
@@ -53,6 +56,11 @@ sudo apt-get upgrade
 ```sh
 # SSH 접속 시도시 IP 키문제가 생길 경우, 키를 초기화시킴
 ssh-keygen -R {아이피주소}
+
+# 에러: -bash: /usr/bin/node: cannot execute binary file: Exec format error
+# 재현: node -v 실행시 발생
+sudo apt remove nodejs -y
+sudo apt purge nodejs -y
 
 # 에러: node: error while loading shared libraries: /lib/aarch64-linux-gnu/libnode.so.108: invalid ELF header
 # 재현: node -v 실행시 발생
