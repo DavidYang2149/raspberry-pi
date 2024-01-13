@@ -55,6 +55,9 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
 sudo docker run hello-world
+
+# 도커에게 계정 권한 주기
+sudo usermod -aG docker {계정명}
 ```
 
 ## 환경설정
@@ -69,6 +72,35 @@ sudo reboot
 
 # apt 업데이트
 sudo apt-get upgrade
+```
+
+## 도커 명령어
+```sh
+# 라이브 컨테이너 조회
+sudo docker ps                 
+# 모든 컨테이너 조회
+sudo docker ps -a
+# 이미지 조회
+sudo docker images
+# 이미지 삭제
+sudo docker rmi 이미지명
+
+# 컨테이너 시작
+sudo docker start 컨테이너ID
+# 컨테이너 중지
+sudo docker stop 컨테이너ID
+# 컨테이너 삭제
+sudo docker rm 컨테이너ID
+# 컨테이너 재부팅
+sudo docker restart 컨테이너ID
+
+# 실행 중인 컨테이너에 접속
+sudo docker attatch 컨테이너ID
+
+# 도커 이미지 추가
+sudo docker build . -t {이미지명}
+# 도커 실행
+sudo docker run -d --name {컨테이너이름} -p 8080:8080 {이미지명}
 ```
 
 ## 트러블슈팅
