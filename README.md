@@ -58,6 +58,12 @@ sudo docker run hello-world
 
 # 도커에게 계정 권한 주기
 sudo usermod -aG docker {계정명}
+
+# 도커 이미지 만들기 (라즈베리파이는 arm64 플랫폼)
+sudo docker buildx build --platform=linux/arm64 --no-cache . -t {이미지이름}
+
+# 도커 컨터이너 올리기
+sudo docker run -d --network=host --name {컨테이너이름} {이미지명}
 ```
 
 ## 환경설정
@@ -93,12 +99,16 @@ sudo docker stop 컨테이너ID
 sudo docker rm 컨테이너ID
 # 컨테이너 재부팅
 sudo docker restart 컨테이너ID
-
-# 실행 중인 컨테이너에 접속
-sudo docker attatch 컨테이너ID
+# 컨테이너의 로그 보기
+sudo docker logs 컨테이너ID
+# 컨테이너 내부로 접속
+docker exec -it 컨테이너ID /bin/bash
 
 # 도커 이미지 추가
 sudo docker build . -t {이미지명}
+# 도커 이미지 만들기 (라즈베리파이는 arm64 플랫폼)
+sudo docker buildx build --platform=linux/arm64 --no-cache . -t {이미지이름}
+
 # 도커 실행
 sudo docker run -d --name {컨테이너이름} -p 8080:8080 {이미지명}
 ```
