@@ -108,6 +108,8 @@ docker exec -it 컨테이너ID /bin/bash
 sudo docker build . -t {이미지명}
 # 도커 이미지 만들기 (라즈베리파이는 arm64 플랫폼)
 sudo docker buildx build --platform=linux/arm64 --no-cache . -t {이미지이름}
+# 도커 빌드 실패한<none> 이미지 모두 삭제하기
+sudo docker rmi $(docker images -f "dangling=true" -q) --force
 
 # 도커 실행
 sudo docker run -d --name {컨테이너이름} -p 8080:8080 {이미지명}
